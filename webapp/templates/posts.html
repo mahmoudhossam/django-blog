@@ -1,4 +1,4 @@
-{% extends "base.html"}
+{% extends "base.html" %}
 {% block title %}
 Current posts
 {% endblock %}
@@ -7,11 +7,11 @@ Current posts
 {% for i in posts %}
 
     {{i.title}}
-    Posted at {{i.created_at}}
+    Posted at: {{i.created_at}}
     <hr>
     {{i.text}}
 
-{% else %}
+{% empty %}
 No posts.
 {% endfor %}
 {% endblock %}
