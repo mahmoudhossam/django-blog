@@ -7,7 +7,7 @@ from webapp import views
 
 urlpatterns = patterns('',
     url(r'^new$', views.new_post),
-
+    url(r'^$', views.all_posts)
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

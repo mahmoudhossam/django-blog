@@ -11,3 +11,8 @@ def new_post(request):
         if post_form.is_valid():
             post_form.save()
             return redirect('/')
+
+def all_posts(request):
+    if request.method == 'GET':
+        posts = Post.objects.all()
+        return TemplateResponse(request, 'posts.html', context={'posts': posts})
