@@ -6,10 +6,10 @@ Current posts
 {% block body %}
 {% for i in posts %}
 
-    {{i.title}}
+    <h3>{{i.title}}</h3>
     Posted at: {{i.created_at}}
-    <hr>
     {{i.text}}
+    <hr>
 
 {% empty %}
 No posts.
