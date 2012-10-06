@@ -5,12 +5,15 @@ Current posts
 
 {% block body %}
 {% for i in posts %}
-
-    <h3>{{i.title}}</h3>
+    
+    
+    <h3><a href={% url webapp.views.single_post i.created_at.year i.created_at.month i.created_at.day i.slug %}>{{i.title}}</a></h3>
     Posted at: {{i.created_at}}
     <br>
     <br>
-    {{i.text}}
+    <pre>
+        {{i.text}}
+    </pre>
     <hr>
 
 {% empty %}
