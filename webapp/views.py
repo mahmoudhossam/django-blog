@@ -3,6 +3,7 @@ from models import Post
 from forms import *
 from util import *
 from django.views.decorators.http import require_http_methods, require_GET
+from django.shortcuts import redirect
 
 @require_http_methods(['GET', 'POST'])
 def new_post(request):
@@ -33,4 +34,8 @@ def signup(request):
     else:
         signupform = SignupForm(request.POST)
         if signupform.is_valid():
-            signupform.save()
+            username = signupform.cleaned_data['username']
+            email = signupform.cleaned_data['email']
+            password = signupform.cleaned_data['password']
+            create_user(username, email, password)
+            return redirect('/')
